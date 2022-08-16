@@ -1,5 +1,5 @@
 # Challenge - Melissa Vargas
-Descripción General
+## Descripción General
 ***
 Esta aplicación fue diseñada para obtener una información del proveedor y disponibilizarla a los Usuarios autorizados del área de Compras equipos de la empresa y a otros terceros previamente autorizados a través de APIs. 
 
