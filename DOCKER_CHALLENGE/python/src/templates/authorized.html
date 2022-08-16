@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Authorized</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" /-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+<body>
+    <section class="is-primary is-fullheight">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/authorized">Authorized</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="hero-body">
+                <table class="table table-hover table-bordered table-striped table-sm">
+                <thead>
+                    <tr>
+                    <th scope="col">Id</th>
+                    <!--th scope="col">Fecha de Alta</th-->
+                    <th scope="col">Nombre</th>
+                    <!--th scope="col">Código Postal</th-->
+                    <th scope="col"># Tarjeta de Crédito</th>
+                    <th scope="col">Tipo Tarjeta de Crédito</th>
+                    <th scope="col"># Cuenta</th>
+                    <!--th scope="col">Dirección</th-->
+                    <!--th scope="col">Latitud</th-->
+                    <!--th scope="col">Longitud</th-->
+                    <!--th scope="col">Color Favorito</th-->
+                    <th scope="col">Foto DNI</th>
+                    <!--tdth scope="col">IP</th-->
+                    <!--th scope="col">Auto</th-->
+                    <!--th scope="col">Modelo Auto</th-->
+                    <!--th scope="col">Tipo Auto</th-->
+                    <!--th scope="col">Color Auto</th-->
+                    <!--th scope="col"># Compras Realizadas</th-->
+                    <!--th scope="col">Avatar</th-->
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for venta in ventas %}
+                    <tr>
+                    <th scope="row">{{ venta['id'] }}</th>
+                    <!--td>{{ venta['fec_alta'] }}</td-->
+                    <td>{{ venta['user_name'] }}</td>
+                    <!--td>{{ venta['codigo_zip'] }}</td-->
+                    <td>{{ venta['credit_card_num'] }}</td>
+                    <td>{{ venta['credit_card_type'] }}</td>
+                    <td>{{ venta['cuenta_numero'] }}</td>
+                    <!--td>{{ venta['direccion'] }}</td-->
+                    <!--td>{{ venta['geo_latitud'] }}</td-->
+                    <!--td>{{ venta['geo_longitud'] }}</td-->
+                    <!--td>{{ venta['color_favorito'] }}</td-->
+                    <td><img src={{ venta['foto_dni'] }} width="100"></td>
+                    <!--td>{{ venta['ip'] }}</td-->
+                    <!--td>{{ venta['auto'] }}</td-->
+                    <!--td>{{ venta['auto_modelo'] }}</td-->
+                    <!--td>{{ venta['auto_tipo'] }}</td-->
+                    <!--td>{{ venta['auto_color'] }}</td-->
+                    <!--td>{{ venta['cantidad_compras_realizadas'] }}</td-->
+                    <!--td>{{ venta['avatar'] }}</td-->
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+        </div>
+    </section>
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>

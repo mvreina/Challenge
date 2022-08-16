@@ -1,0 +1,17 @@
+services:
+  pythonapp:
+    build: ./python/
+    ports:
+      - '7000:4000'
+    depends_on:
+      - mysql
+    volumes:
+      - D:\Melissa\Mercadeolibre\DOCKER_CHALLENGE\python\src:/app/src/
+
+  mysql:
+    build: ./mysql/
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - '3306:3306'
