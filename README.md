@@ -21,7 +21,7 @@ Aplicaciones usadas para el desarrollo del Challenge:
 
 ## Instalación
 ***
-A little intro about the installation. 
+Para hacer uso de esta aplicación por favor siga los siguientes pasos: 
 ```
 $ git clone https://example.com
 $ cd ../path/to/the/file
