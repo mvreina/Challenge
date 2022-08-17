@@ -23,10 +23,13 @@ Aplicaciones usadas para el desarrollo del Challenge:
 ***
 Para hacer uso de esta aplicación por favor siga los siguientes pasos: 
 ```
-$ git clone https://example.com
-$ cd ../path/to/the/file
-$ npm install
-$ npm start
+1. Descargar Docker Desktop
+Nota: Asegurese de no tener otros contenedores o imagenes en el docker
+2. Crear una carpeta (para el proyecto) llamada: mvcontainer 
+3. Bajar de GiHub el arhivo docker-compose.yml
+4. Guardar el archivo docker-compose.yml en la carpeta mvcontainer 
+5. Ingresar por línea de comando a la ruta donde se encuentra el archivo docker-compose.yml 
+6. Ejecutar el comando docker-compose up -d 
 ```
 
 ## Posibles Mejoras
