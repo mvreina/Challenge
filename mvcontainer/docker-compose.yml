@@ -1,0 +1,15 @@
+services:
+  pythonapp:
+    image: mvreina/docker_challenge_pythonapp:v1
+    ports:
+      - '7000:4000'
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mvreina/docker_challenge_mysql:v1
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - '3306:3306'
