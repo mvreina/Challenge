@@ -8,14 +8,6 @@ def open():
         user='root', password='root', host='mysql', port='3306', database='db', auth_plugin='mysql_native_password')
     return connection
 
-def getAllSales():
-    connect = open()
-    cursor = connect.cursor(dictionary=True)
-    cursor.execute('Select fec_alta,user_name,codigo_zip,credit_card_num,credit_card_type,cuenta_numero,direccion,geo_latitud,geo_longitud,color_favorito,foto_dni,ip,auto,auto_modelo,auto_tipo,auto_color,cantidad_compras_realizadas,avatar,id FROM sales')
-    sales = cursor.fetchall()
-    connect.close()
-    return sales
-
 def getAllSalesValidAdmin():
     connect = open()
     cursor = connect.cursor(dictionary=True)
@@ -39,12 +31,24 @@ def getAllSalesLog():
     sales = cursor.fetchall()
     connect.close()
     return sales
-                
+
+
+#Consultas para generar los APIs REST - GET
+
+def getAllSales():
+    connect = open()
+    cursor = connect.cursor(dictionary=True)
+    cursor.execute('Select user_name,codigo_zip,credit_card_num,credit_card_type,cuenta_numero,direccion,geo_latitud,geo_longitud,color_favorito,foto_dni,ip,auto,auto_modelo,auto_tipo,auto_color,cantidad_compras_realizadas,avatar,id FROM sales')
+    sales = cursor.fetchall()
+    connect.close()
+    return sales
+
+
 def getSale(id):
     connect = open()
     cursor = connect.cursor(dictionary=True)
     #cursor.execute("Select user_name,codigo_zip,credit_card_num,cuenta_numero,direccion,geo_latitud,geo_longitud,color_favorito,foto_dni,ip,auto,auto_modelo,auto_tipo,auto_color,cantidad_compras_realizadas,avatar,id FROM sales where id='"+id+"'")
-    cursor.execute("Select fec_alta,user_name,codigo_zip,credit_card_num,cuenta_numero,direccion,geo_latitud,geo_longitud,color_favorito,foto_dni,ip,auto,auto_modelo,auto_tipo,auto_color,cantidad_compras_realizadas,avatar,id FROM sales where id = %(id)s", {'id': id})
+    cursor.execute("Select user_name,codigo_zip,credit_card_num,cuenta_numero,direccion,geo_latitud,geo_longitud,color_favorito,foto_dni,ip,auto,auto_modelo,auto_tipo,auto_color,cantidad_compras_realizadas,avatar,id FROM sales where id = %(id)s", {'id': id})
     sales = cursor.fetchall()
     connect.close()
     return sales
@@ -69,6 +73,7 @@ def insertJsonIntoSales(respuestaJson):
     connect.commit()
     cursor.close()
 
+#Validación del usuario y el password
 def validateUser(u, p):
     connect = open()
     cursor = connect.cursor(dictionary=True)

@@ -8,9 +8,12 @@ import json
 import database
 import collections
 
+#Inicia la aplicación
 app = Flask(__name__)
 app.secret_key = "Melissa"
 api = Api(app)
+
+#Manejo de Sesiones en la aplicacion
 
 #login_manager = LoginManager()
 #login_manager.login_view = 'login'
@@ -19,7 +22,6 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 login_manager.login_message = "Por favor inicie sesión para poder acceder a esta página."
 login_manager.login_message_category = "info"
-
 
 @login_manager.user_loader
 def load_user(id):
@@ -80,6 +82,10 @@ def runBatch():
     flash('Finalizó el proceso de carga satisfactoriamente.')
     return render_template('batch.html')
 
+
+####################################################
+#                   APIs REST - GET
+####################################################
 #API REST GET SALES
 class getSales(Resource):
     def get(self):
@@ -150,10 +156,6 @@ def login_post():
             return redirect('/authorized')
         else:
             return redirect('/home')
-
-
-
-
 
 ####################################################
 #                   Ejecutar Aplicación
